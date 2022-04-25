@@ -1,38 +1,105 @@
 .App {
-  text-align: center;
+	display: flex;
+	justify-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Grid part */
+
+.movies {
+	width: 80vw;
+	display: grid;
+	gap: 5px;
+	grid-template-columns: 1fr 1fr;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.movie_grid_item {
+	position: relative;
+	width: 40vw;
+	height: 70vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.movie_wrapper {
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+/* Info part */
+
+.movie_info_wrapper {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	overflow: hidden;
+	z-index: 2;
+	background-color: #eeeeee;
+	transition: all 0.5s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.movie_info_part {
+	width: 100%;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	top: 0;
+	left: 0;
+	transition: all 0.5s ease;
+}
+
+.info_right {
+	display: flex;
+	flex: 1 1 0;
+	flex-direction: column;
+	align-items: center;
+}
+
+.info_right_title {
+	padding-top: 3rem;
+	text-align: center;
+}
+
+.info_right_gernes {
+	padding-top: 1rem;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+/* summary part */
+
+.movie_summary_part {
+	position: absolute;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.summary_title {
+	text-align: center;
+}
+
+.summary {
+	position: relative;
+	text-align: center;
+	top: 0;
+	left: 0;
+}
+
+
+
+/* Movie - interactive animation */
+
+.movie_grid_item:hover .movie_info_wrapper {
+	transform: translateY(-400px);
+}
+
+.movie_grid_item:hover .movie_info_part {
+	transform: translateY(400px);
 }
